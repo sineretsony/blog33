@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name_car }}</title>
+</head>
+<body>
+    <h1>{{ name_car }}</h1>
+    <img src="{% static 'task_2/'|add:img|add:'.jpg' %}" alt="{{ name_car }} Image">
+</body>
+</html>

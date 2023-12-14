@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+  <!-- Title -->
+  <h1>New Post</h1>
+  
+  <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <!-- Bootstrap Form Layout -->
+    <div class="form-group">
+      <label for="{{ form.title.id_for_label }}">Title:</label>
+      {{ form.title }}
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.content.id_for_label }}">Content:</label>
+      {{ form.content }}
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.category.id_for_label }}">Category:</label>
+      {{ form.category }}
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.poster.id_for_label }}">Poster:</label>
+      {{ form.poster }}
+    </div>
+
+    <div class="form-group">
+      <label for="{{ form.tag.id_for_label }}">Tags:</label>
+      {{ form.tag }}
+    </div>
+
+    <!-- Save Button -->
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+  <p></p>
+  
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+
+<!-- Blog Post -->
+
+<!-- Title -->
+<h1>Contact</h1>
+
+<!-- Author -->
+<p class="lead">
+    <a href="{% url 'contact' %}">Подписка на новости</a>
+</p>
+
+<hr>
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+<hr>
+<div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <!--        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">-->
+    <form action="{% url 'contact' %}" method="POST">
+        {% csrf_token %}
+        {{ form.email_name }}
+        <p></p>
+        <input type="submit" value="Send" class="btn btn-default">
+    </form>
+
+    <p></p>
+</div>
+
+
+
+<hr>
+
+<!-- Posted Comments -->
+
+
+{% endblock %}

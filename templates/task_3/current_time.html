@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Time</title>
+    <style>
+        body {
+            background-color: {% if current_time >= '06:00:00' and current_time < '12:00:00' %}#66cc66{% elif current_time >= '12:00:00' and current_time < '18:00:00' %}#ffcc66{% else %}#6666cc{% endif %};
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Текущее время: {{ current_time }}</h1>
+</body>
+</html>

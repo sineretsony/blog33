@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Edit Profile</h1>
+
+<form method="post" action="{% url 'update_profile' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+     <div class="form-group">
+        <label for="id_avatar"></label>
+        <div class="avatar-circle">
+            {% if form_profile.instance.avatar %}
+                <img src="{{ form_profile.instance.avatar.url }}" alt="Current Avatar" width="100">
+            {% endif %}
+        </div>
+        <input type="file" name="avatar" id="id_avatar" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="id_username">Name:</label>
+        <input type="text" name="username" id="id_username" class="form-control" value="{{ user.username }}">
+    </div>
+    <div class="form-group">
+        <label for="id_email">Email:</label>
+        <input type="text" name="email" id="id_email" class="form-control" value="{{ user.email }}">
+    </div>
+    <div class="form-group">
+        <label for="id_social_networks">Social Networks:</label>
+        <input type="text" name="social_networks" id="id_social_networks" class="form-control" value="{{ form_profile.instance.social_networks }}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+<p></p>
+
+<style>
+    .avatar-circle {
+        overflow: hidden;
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    .avatar-circle img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+{% endblock %}

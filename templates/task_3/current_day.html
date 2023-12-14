@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Day</title>
+    <style>
+        body {
+            background-color: {% if day_of_week == 'Понедельник' %}#ff9999{% elif day_of_week == 'Вторник' %}#ffcc99{% elif day_of_week == 'Среда' %}#ffff99{% elif day_of_week == 'Четверг' %}#99ff99{% elif day_of_week == 'Пятница' %}#99ccff{% elif day_of_week == 'Суббота' %}#ff99ff{% else %}#ffccff{% endif %};
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Сегодня: {{ day_of_week }}</h1>
+</body>
+</html>
